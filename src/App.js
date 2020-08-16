@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import formatNumber from "format-number";
-//import photographer from "./images/girl.png";
+
+import store from "./store";
+
 import "./App.css";
 
 class App extends Component {
-  state = {
-    username: "Janny",
-    totalAmount: 2500701
-  };
   render() {
-    const { totalAmount, username } = this.state;
+    const { totalAmount, username } = store.getState();
     return (
       <div className="App">
         <img className="App__userpic" src={"https://image.ibb.co/nC8vGp/girl.png"} alt="photographer" />
-        <p className="App__username">Hello, {username}! </p>
+        <p className="App__username">Hello, { username }! </p>
         <div className="App__amount">
           {formatNumber({ prefix: "$" })(totalAmount)}
           <p className="App__amount--info">Total Amount</p>
